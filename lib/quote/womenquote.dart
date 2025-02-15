@@ -1,7 +1,7 @@
 List<String> quotes = [
-  "Believe in yourself!",
-  "Stay positive and happy.",
-  "Your limitation—it's only your imagination.",
-  "Push yourself, because no one else is going to do it for you.",
-  "Success doesn’t just find you. You have to go out and get it."
+  "Your safety is your right, not a privilege. Help is just a tap away.",
+  "Your voice matters. Your safety matters. You are never alone SOS is here for you.",
+  "Raise your voice, not your fears. Every SOS deserves an answer.",
+  "A woman’s safety should never be a question, it should be a guarantee.",
+  "SOS: Speak Out Strong—because silence is not an option.",
 ];
