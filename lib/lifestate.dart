@@ -5,7 +5,6 @@ import 'package:sos_app/lafe_safe/hospital.dart';
 import 'package:sos_app/lafe_safe/pharmacies.dart';
 import 'package:sos_app/lafe_safe/police.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:sos_app/sos.dart';
 
 class lifesafe extends StatelessWidget {
   const lifesafe({super.key});
