@@ -477,6 +477,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  sms_sender_background:
+    dependency: "direct main"
+    description:
+      name: sms_sender_background
+      sha256: a3028af030ea76bb6f9a5731710b6dd01c2bebdc14d79917a3f3d070c3d180c9
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
   source_span:
     dependency: transitive
     description:
