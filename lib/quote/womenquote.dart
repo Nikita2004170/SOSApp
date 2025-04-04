@@ -5,3 +5,15 @@ List<String> quotes = [
   "A woman’s safety should never be a question, it should be a guarantee.",
   "SOS: Speak Out Strong—because silence is not an option.",
 ];
+List<String> slider = [
+  "We have to end violance",
+  "Be a change",
+  "You are strong",
+  "You are an asset for India"
+];
+List<String> image = [
+  'images/women3.webp',
+  'images/women1.jpg',
+  'images/women2.jpg',
+  'images/women4.jpeg',
+];

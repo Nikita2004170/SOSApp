@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sos_app/quote/custom.dart';
 import 'package:sos_app/quote/womenquote.dart';
 import 'package:sos_app/safehome.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -109,26 +110,27 @@ class _SOSAppState extends State<SOSApp> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                ///////change quote
+                padding: const EdgeInsets.only(top: 10),
                 child: GestureDetector(
                   onTap: _changeQuote,
                   child: Container(
-                    margin: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(3),
                     width: MediaQuery.of(context).size.width,
-                    height: 100,
+                    height: 80,
                     //color: const Color.fromARGB(120, 157, 92, 139),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(120, 157, 92, 139),
-                      borderRadius: BorderRadius.circular(
-                          20), // Circular edges with radius
-                    ),
+                    // decoration: BoxDecoration(
+                    //   color: const Color.fromARGB(120, 157, 92, 139),
+                    //   borderRadius: BorderRadius.circular(
+                    //       20), // Circular edges with radius
+                    // ),
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(5),
                         child: Text(
                           currentQuote,
                           style: const TextStyle(
-                              fontSize: 19, fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -138,12 +140,19 @@ class _SOSAppState extends State<SOSApp> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Image.asset(
-                  'images/Screenshot 2025-02-05 at 2.54.06 AM.png',
-                  height: 200,
-                  width: 200,
-                ),
+                child: CustomCarouel(),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.all(10),
+              //   child: Image.asset(
+              //     //'images/Screenshot 2025-02-05 at 2.54.06 AM.png',
+              //     'images/women3.webp',
+
+              //     height: 200,
+              //     width: 200,
+              //   ),
+              // ),
+              // child: custom()),
               Padding(
                   padding: const EdgeInsets.all(0),
                   child: Text(
