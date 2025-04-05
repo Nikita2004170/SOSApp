@@ -158,6 +158,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_direct_caller_plugin:
+    dependency: "direct main"
+    description:
+      name: flutter_direct_caller_plugin
+      sha256: "0dc32a2cb351f41ea633a9c9e6be5eb5239197f390e519f3a991bda794bba0cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   flutter_lints:
     dependency: "direct dev"
     description:

@@ -6,7 +6,7 @@ import 'package:sos_app/quote/womenquote.dart';
 //import 'package:women_safety_app/widgets/home_widgets/safewebview.dart';
 
 class CustomCarouel extends StatelessWidget {
-  const CustomCarouel({Key? key}) : super(key: key);
+  const CustomCarouel({super.key});
 
   void navigateToRoute(BuildContext context, Widget route) {
     Navigator.push(context, CupertinoPageRoute(builder: (context) => route));

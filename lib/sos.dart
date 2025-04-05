@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:sos_app/quote/custom.dart';
 import 'package:sos_app/quote/womenquote.dart';
 import 'package:sos_app/safehome.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sos_app/lifestate.dart';
-//import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:flutter_direct_caller_plugin/flutter_direct_caller_plugin.dart';
 
 class SOSApp extends StatefulWidget {
   const SOSApp({super.key});
@@ -45,9 +44,18 @@ class _SOSAppState extends State<SOSApp> {
     _loadEmergencyNumber();
   }
 
-  void _makeCall(String number) {
+  // void _makeCall(String number) {
+  //   if (number.isNotEmpty) {
+  //     launch('tel:+91$number');
+  //   } else {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       const SnackBar(content: Text('No emergency contact set!')),
+  //     );
+  //   }
+  // }
+  void _makeCall(String number) async {
     if (number.isNotEmpty) {
-      launch('tel:+91$number');
+      await FlutterDirectCallerPlugin.callNumber('+91$number');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('No emergency contact set!')),
@@ -118,12 +126,6 @@ class _SOSAppState extends State<SOSApp> {
                     margin: const EdgeInsets.all(3),
                     width: MediaQuery.of(context).size.width,
                     height: 80,
-                    //color: const Color.fromARGB(120, 157, 92, 139),
-                    // decoration: BoxDecoration(
-                    //   color: const Color.fromARGB(120, 157, 92, 139),
-                    //   borderRadius: BorderRadius.circular(
-                    //       20), // Circular edges with radius
-                    // ),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(5),
@@ -142,17 +144,6 @@ class _SOSAppState extends State<SOSApp> {
                 padding: const EdgeInsets.all(10),
                 child: CustomCarouel(),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.all(10),
-              //   child: Image.asset(
-              //     //'images/Screenshot 2025-02-05 at 2.54.06 AM.png',
-              //     'images/women3.webp',
-
-              //     height: 200,
-              //     width: 200,
-              //   ),
-              // ),
-              // child: custom()),
               Padding(
                   padding: const EdgeInsets.all(0),
                   child: Text(
@@ -160,16 +151,30 @@ class _SOSAppState extends State<SOSApp> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   )),
               lifesafe(),
-              ElevatedButton(
-                //onPressed: _handleSOS,
-                onPressed: () {
-                  launch('tel:100');
-                },
+              // ElevatedButton(
+              //   //onPressed: _handleSOS,
+              //   onPressed: () {
+              //     launch('tel:100');
+              //   },
 
+              //   style: ElevatedButton.styleFrom(
+              //       backgroundColor: Colors.red,
+              //       padding: const EdgeInsets.symmetric(
+              //           vertical: 20, horizontal: 40)),
+              //   child: const Text(
+              //     'SOS',
+              //     style: TextStyle(color: Colors.white, fontSize: 20),
+              //   ),
+              // ),
+              ElevatedButton(
+                onPressed: () async {
+                  await FlutterDirectCallerPlugin.callNumber("100");
+                },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 40)),
+                  backgroundColor: Colors.red,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                ),
                 child: const Text(
                   'SOS',
                   style: TextStyle(color: Colors.white, fontSize: 20),

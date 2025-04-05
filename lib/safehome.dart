@@ -111,14 +111,6 @@ class _safehomeState extends State<safehome> {
     _numberController.text = emergencyNumber ?? ''; // Update text field
   }
 
-// can delete
-  // Future<void> _loadEmergencyNumber() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     emergencyNumber = prefs.getString('emergencyNumber') ?? '';
-  //   });
-  // }
-
   void showModel(BuildContext context) {
     showModalBottomSheet(
       context: context,
