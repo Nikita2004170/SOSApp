@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:sos_app/quote/custom.dart';
 import 'package:sos_app/quote/womenquote.dart';
 import 'package:sos_app/safehome.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sos_app/lifestate.dart';
 import 'package:flutter_direct_caller_plugin/flutter_direct_caller_plugin.dart';
+import 'package:sos_app/savecontact.dart';
 
 class SOSApp extends StatefulWidget {
   const SOSApp({super.key});
@@ -31,28 +31,30 @@ class _SOSAppState extends State<SOSApp> {
     });
   }
 
+  // Future<void> _loadEmergencyNumber() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     emergencyNumber = prefs.getString('emergencyNumber') ?? '';
+  //   });
+  // }
+
+  // Future<void> _setEmergencyNumber(String number) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setString('emergencyNumber', number);
+  //   _loadEmergencyNumber();
+  // }
   Future<void> _loadEmergencyNumber() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? number = await EmergencyNumberHelper.getEmergencyNumber();
     setState(() {
-      emergencyNumber = prefs.getString('emergencyNumber') ?? '';
+      emergencyNumber = number ?? '';
     });
   }
 
   Future<void> _setEmergencyNumber(String number) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('emergencyNumber', number);
+    await EmergencyNumberHelper.saveEmergencyNumber(number);
     _loadEmergencyNumber();
   }
 
-  // void _makeCall(String number) {
-  //   if (number.isNotEmpty) {
-  //     launch('tel:+91$number');
-  //   } else {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       const SnackBar(content: Text('No emergency contact set!')),
-  //     );
-  //   }
-  // }
   void _makeCall(String number) async {
     if (number.isNotEmpty) {
       await FlutterDirectCallerPlugin.callNumber('+91$number');

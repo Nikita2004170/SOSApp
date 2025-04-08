@@ -4,6 +4,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_app/savecontact.dart';
+import 'package:sms_sender/sms_sender.dart';
 
 class safehome extends StatefulWidget {
   const safehome({super.key});
@@ -82,12 +84,11 @@ class _safehomeState extends State<safehome> {
     }
   }
 
-// add new
   Future<void> _saveEmergencyNumber(String number) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('emergencyNumber', number);
+    await EmergencyNumberHelper.saveEmergencyNumber(number);
     setState(() {
       emergencyNumber = number;
+      _numberController.text = number;
     });
     Fluttertoast.showToast(msg: "Emergency contact updated successfully!");
   }
@@ -104,14 +105,15 @@ class _safehomeState extends State<safehome> {
   }
 
   Future<void> _loadEmergencyNumber() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? number = await EmergencyNumberHelper.getEmergencyNumber();
     setState(() {
-      emergencyNumber = prefs.getString('emergencyNumber') ?? '';
+      emergencyNumber = number ?? '';
+      _numberController.text = emergencyNumber!;
     });
-    _numberController.text = emergencyNumber ?? ''; // Update text field
   }
 
-  void showModel(BuildContext context) {
+  void showModel(BuildContext context) async {
+    emergencyNumber = await EmergencyNumberHelper.getEmergencyNumber();
     showModalBottomSheet(
       context: context,
       builder: (context) {
