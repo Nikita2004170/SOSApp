@@ -4,12 +4,12 @@ A Flutter-based SOS emergency application designed primarily for women's safety
 
 ### Table of Contents
 
-- [Home Screen](#Home_Screen)
-- [SOS Button and Lifesafe section](#SOS_Button_and_lifesafe_section)
-- [Emergency Contact](#Emergency_Contact)
-- [Location Features](#Location_Features)
+- [User Authentication](#user-authentication)
+- [Home Screen](#home-screen)
+- [SOS Button and LifeSafe Section](#sos-button-and-lifesafe-section)
+- [Emergency Contact](#emergency-contact)
+- [Location Features](#location-features)
 
----
 
 ## User Authentication
 
