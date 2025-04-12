@@ -84,7 +84,9 @@ flutter:
     - images/app_ss.png
     - images/lifesafe.jpeg
     - images/pharma.jpeg 
-    - images/whatsapplocation.jpeg 
+    - images/whatsapplocation.jpeg
+    - images/pharma.jpeg 
+    - images/set.jpeg
 
 
 
